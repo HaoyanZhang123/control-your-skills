@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/cover.png" alt="control-your-skills cover: two DeepSeek Harness skills for release hygiene and repository presentation" width="100%">
+</p>
+
 <h1 align="center">control-your-skills</h1>
 
 <p align="center">Two DeepSeek Harness skills for shipping work in public — Git release discipline and repository presentation.</p>

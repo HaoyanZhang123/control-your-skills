@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/cover.png" alt="control-your-skills 封面：两个 DeepSeek Harness skill —— 发版纪律与仓库呈现" width="100%">
+</p>
+
 <h1 align="center">control-your-skills</h1>
 
 <p align="center">两个 DeepSeek Harness skill：把交付做扎实的 Git 发版纪律，和让别人看得懂的仓库呈现。</p>

@@ -3,6 +3,20 @@
 格式参考 [Keep a Changelog](https://keepachangelog.com/)，版本号遵循 [Semantic Versioning](https://semver.org/lang/zh-CN/)。
 每个版本的记录都是**完整中文段 + 完整英文段**，不逐句对照。
 
+## [Unreleased]
+
+### 中文
+
+**新增**
+
+- 仓库封面 `assets/cover.png`，两份 README 顶部同步展示。
+
+### English
+
+**Added**
+
+- Repository cover `assets/cover.png`, shown at the top of both READMEs.
+
 ## [0.1.0] - 2026-10-30
 
 ### 中文
