@@ -1,0 +1,13 @@
+# 统一行尾：这个仓的内容要跨机器/跨 agent 读取，行尾漂移会让 diff 噪声。
+* text=auto eol=lf
+
+# 图片按二进制处理（封面等）
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.gif binary
+
+# 文本显式声明
+*.md text eol=lf
+*.json text eol=lf

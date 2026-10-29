@@ -1,0 +1,9 @@
+# DSH preset-override bookkeeping (machine-local state, not skill content)
+.imported-from-dsh-agent-team-presets.json
+
+# Junk
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+output/
