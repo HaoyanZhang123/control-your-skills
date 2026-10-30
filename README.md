@@ -28,7 +28,7 @@ The first batch covers the two ends of shipping work in public: getting changes 
 | Skill | What it does | Use it when |
 |---|---|---|
 | [`git-release-hygiene`](skills/git-release-hygiene/SKILL.md) | Organizes commits, PRs, changelogs, version numbers, tags and releases from the real Git state. Release and changelog text is written as a complete Chinese block followed by a complete English block. | You are about to commit, open a PR, bump a version, cut a tag, or publish a release. |
-| [`github-repository-presentation`](skills/github-repository-presentation/SKILL.md) | Applies one bilingual README skeleton, visual system and wording rules to a GitHub repository, and keeps description, topics, badges and release notes consistent with it. | You are writing or rewriting a repository home page, cover, badges, description or topics. |
+| [`github-repository-presentation`](skills/github-repository-presentation/SKILL.md) | Applies one bilingual README skeleton, visual system and wording rules to a GitHub repository, keeps description, topics, badges and release notes consistent, and guides the use of real screenshots for features and workflows. | You are writing or rewriting a repository home page, cover, feature screenshots, badges, description or topics. |
 
 Both skills are written for Chinese-speaking work: their trigger descriptions and rule text are Chinese, while the documents they produce (README, release notes) are bilingual. No English edition of the skill text is included yet.
 

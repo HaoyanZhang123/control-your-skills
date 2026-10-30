@@ -28,7 +28,7 @@
 | Skill | 做什么 | 什么时候用 |
 |---|---|---|
 | [`git-release-hygiene`](skills/git-release-hygiene/SKILL.md) | 依据真实 Git 状态组织 Commit、PR、Changelog、版本号、Tag 与 Release；发布文案写成完整中文段加完整英文段。 | 准备提交、开 PR、升版本、打 Tag、发 Release 时。 |
-| [`github-repository-presentation`](skills/github-repository-presentation/SKILL.md) | 用同一套双语 README 骨架、视觉与措辞规则整理仓库首页，并让 Description、Topics、徽章与 Release Notes 保持一致。 | 写或重写仓库首页、封面、徽章、Description、Topics 时。 |
+| [`github-repository-presentation`](skills/github-repository-presentation/SKILL.md) | 用同一套双语 README 骨架、视觉与措辞规则整理仓库首页，让 Description、Topics、徽章与 Release Notes 保持一致，并指导用真实截图说明功能与操作流程。 | 写或重写仓库首页、封面、功能截图、徽章、Description、Topics 时。 |
 
 两个 skill 都面向中文工作流：触发描述与规则正文是中文，产出的文档（README、Release 说明）是中英双语。暂未提供英文版正文。
 
