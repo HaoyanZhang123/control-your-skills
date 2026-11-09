@@ -1,10 +1,10 @@
 <p align="center">
-  <img src="assets/cover.png" alt="control-your-skills 封面：两个 DeepSeek Harness skill —— 发版纪律与仓库呈现" width="100%">
+  <img src="assets/cover.png" alt="control-your-skills 封面：三个 DeepSeek Harness skill —— 发版纪律、仓库呈现与论文配图" width="100%">
 </p>
 
 <h1 align="center">control-your-skills</h1>
 
-<p align="center">两个 DeepSeek Harness skill：把交付做扎实的 Git 发版纪律，和让别人看得懂的仓库呈现。</p>
+<p align="center">三个 DeepSeek Harness skill：把交付做扎实的 Git 发版纪律、让别人看得懂的仓库呈现，和只讲数据的论文配图。</p>
 
 <p align="center"><a href="README.md">English</a></p>
 
@@ -21,7 +21,7 @@
 
 这个仓库放我日常在用的 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)（DSH）skill。每个 skill 就是一个 `SKILL.md`：DSH 从技能目录里发现它，任务与它的 description 匹配时加载。没有构建步骤，没有包管理器，也没有运行时依赖。
 
-第一批收的是「交付」这件事的两端：把改动从工作区安全、诚实、可读地送出去（`git-release-hygiene`），以及把仓库首页讲清楚，让第一次来的人知道它是什么（`github-repository-presentation`）。
+这套 skill 管的是「把活送出去」和「送出去之后还看得懂」：改动安全、诚实、可读地离开工作区（`git-release-hygiene`）；仓库首页讲清楚自己是什么（`github-repository-presentation`）；论文配图不带 AI 味，同时不干涉你怎么画（`paper-figure-audit`）。
 
 ## 技能
 
@@ -29,8 +29,9 @@
 |---|---|---|
 | [`git-release-hygiene`](skills/git-release-hygiene/SKILL.md) | 依据真实 Git 状态组织 Commit、PR、Changelog、版本号、Tag 与 Release；发布文案写成完整中文段加完整英文段。 | 准备提交、开 PR、升版本、打 Tag、发 Release 时。 |
 | [`github-repository-presentation`](skills/github-repository-presentation/SKILL.md) | 用同一套双语 README 骨架、视觉与措辞规则整理仓库首页，让 Description、Topics、徽章与 Release Notes 保持一致，并指导用真实截图说明功能与操作流程。 | 写或重写仓库首页、封面、功能截图、徽章、Description、Topics 时。 |
+| [`paper-figure-audit`](skills/paper-figure-audit/SKILL.md) | 删掉论文图里的 AI 味——图内替作者说话或辩护的文字、装饰、幻灯片式结构、一套模板套所有图、编造出来的细节——但不管图型、统计与排版。 | 画、改、审论文配图，写图注，或投稿前自查图表时。 |
 
-两个 skill 都面向中文工作流：触发描述与规则正文是中文，产出的文档（README、Release 说明）是中英双语。暂未提供英文版正文。
+三个 skill 都面向中文工作流：触发描述与规则正文是中文，产出的文档（README、Release 说明）是中英双语。暂未提供英文版正文。
 
 ## 安装
 
@@ -68,9 +69,12 @@ Windows 目录联接不需要管理员权限。如果同名实目录已存在（
 
 按我的规范把 README 重写成中英两份，再给 Description 和 Topics
 → github-repository-presentation
+
+这张图里的指标框和结论句该不该留，帮我去掉 AI 味
+→ paper-figure-audit
 ```
 
-这两个 skill 是从日常使用里抽出来的，带明显偏好：项目已有约定就沿用，没有再提建议，不强行套用某一种提交规范或版本策略。
+这些 skill 是从日常使用里抽出来的，带明显偏好：项目已有约定就沿用，没有再提建议，不强行套用某一种提交规范或版本策略。配图那个刻意写得窄——只去 AI 味，不评判图型、统计和排版。
 
 ## 仓库结构
 
@@ -78,7 +82,8 @@ Windows 目录联接不需要管理员权限。如果同名实目录已存在（
 control-your-skills/
 ├─ skills/
 │  ├─ git-release-hygiene/SKILL.md
-│  └─ github-repository-presentation/SKILL.md
+│  ├─ github-repository-presentation/SKILL.md
+│  └─ paper-figure-audit/SKILL.md
 ├─ README.md            # 英文主文件
 ├─ README.zh.md         # 中文（本文件）
 ├─ CHANGELOG.md
@@ -95,4 +100,4 @@ control-your-skills/
 
 ## 许可证
 
-[MIT](LICENSE)。两个 skill 最初是另一个项目里的技能文档，来源记录见 [NOTICE](NOTICE)。
+[MIT](LICENSE)。前两个 skill 最初是另一个项目里的技能文档，来源记录见 [NOTICE](NOTICE)；`paper-figure-audit` 是为本仓库写的。
