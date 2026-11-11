@@ -1,10 +1,10 @@
 <p align="center">
-  <img src="assets/cover.png" alt="control-your-skills cover: three DeepSeek Harness skills for release hygiene, repository presentation and paper figures" width="100%">
+  <img src="assets/cover.png" alt="control-your-skills cover: four DeepSeek Harness skills for release hygiene, repository presentation, paper figures and skill authoring" width="100%">
 </p>
 
 <h1 align="center">control-your-skills</h1>
 
-<p align="center">Three DeepSeek Harness skills for work that has to hold up in public — Git release discipline, repository presentation, and figures that only show data.</p>
+<p align="center">Four DeepSeek Harness skills for work that has to hold up in public — Git release discipline, repository presentation, figures that only show data, and skills written to a standard.</p>
 
 <p align="center"><a href="README.zh.md">中文</a></p>
 
@@ -21,7 +21,7 @@
 
 This repository is the home of the skills I use with [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) (DSH). Each skill is a single `SKILL.md`: DSH discovers it from a skills directory and loads it when a task matches its description. There is no build step, no package manager and no runtime dependency.
 
-The set covers getting work out the door and keeping it legible afterwards: changes leave the working tree safely and with readable release text (`git-release-hygiene`); the repository explains itself to a first-time visitor (`github-repository-presentation`); and manuscript figures carry no AI tells while the plotting itself stays unconstrained (`paper-figure-audit`).
+The set covers getting work out the door and keeping it legible afterwards: changes leave the working tree safely and with readable release text (`git-release-hygiene`); the repository explains itself to a first-time visitor (`github-repository-presentation`); manuscript figures carry no AI tells while the plotting itself stays unconstrained (`paper-figure-audit`); and new skills get built the way DSH actually loads them (`skill-creator`).
 
 ## Skills
 
@@ -30,8 +30,9 @@ The set covers getting work out the door and keeping it legible afterwards: chan
 | [`git-release-hygiene`](skills/git-release-hygiene/SKILL.md) | Organizes commits, PRs, changelogs, version numbers, tags and releases from the real Git state. Release and changelog text is written as a complete Chinese block followed by a complete English block. | You are about to commit, open a PR, bump a version, cut a tag, or publish a release. |
 | [`github-repository-presentation`](skills/github-repository-presentation/SKILL.md) | Applies one bilingual README skeleton, visual system and wording rules to a GitHub repository, keeps description, topics, badges and release notes consistent, and guides the use of real screenshots for features and workflows. | You are writing or rewriting a repository home page, cover, feature screenshots, badges, description or topics. |
 | [`paper-figure-audit`](skills/paper-figure-audit/SKILL.md) | Removes the AI tells from a manuscript figure — text that argues or defends inside the plot, decoration, slide-like structure, one template reused everywhere, fabricated detail — and leaves chart choice, statistics and typography alone. | You are drawing, revising or reviewing a paper figure, writing its caption, or self-checking figures before submission. |
+| [`skill-creator`](skills/skill-creator/SKILL.md) | Decides whether something should be a skill at all, then splits it into `SKILL.md`, `references/`, `scripts/` and `assets/`, writes the description that actually triggers it, sets the right degree of freedom, and validates the result with a zero-dependency script. | You are creating a new skill, refactoring an overgrown `SKILL.md`, adding references or scripts to an existing one, or auditing a skill against the format. |
 
-All three skills are written for Chinese-speaking work: their trigger descriptions and rule text are Chinese, while the documents they produce (README, release notes) are bilingual. No English edition of the skill text is included yet.
+All four skills are written for Chinese-speaking work: their trigger descriptions and rule text are Chinese, while the documents they produce (README, release notes) are bilingual. No English edition of the skill text is included yet.
 
 ## Installation
 
@@ -72,6 +73,9 @@ DSH loads a skill when the task matches its description; you can also name a ski
 
 这张图里的指标框和结论句该不该留，帮我去掉 AI 味
 → paper-figure-audit
+
+这个 SKILL.md 太长了，帮我拆到 references，再写 description
+→ skill-creator
 ```
 
 The skills were extracted from daily use, so they encode opinions rather than handle every workflow: they follow an existing project convention when there is one, and only fall back to a proposal when there is none. The figure skill in particular stays deliberately narrow — it removes AI tells and does not police chart type, statistics or typography.
@@ -82,8 +86,16 @@ The skills were extracted from daily use, so they encode opinions rather than ha
 control-your-skills/
 ├─ skills/
 │  ├─ git-release-hygiene/SKILL.md
-│  ├─ github-repository-presentation/SKILL.md
-│  └─ paper-figure-audit/SKILL.md
+│  ├─ github-repository-presentation/
+│  │  ├─ SKILL.md
+│  │  └─ references/readme-template.md
+│  ├─ paper-figure-audit/SKILL.md
+│  └─ skill-creator/
+│     ├─ SKILL.md
+│     ├─ references/workflows.md
+│     ├─ references/output-patterns.md
+│     ├─ scripts/quick_validate.py
+│     └─ LICENSE.txt
 ├─ README.md            # English (this file)
 ├─ README.zh.md         # 中文镜像
 ├─ CHANGELOG.md
@@ -100,4 +112,4 @@ control-your-skills/
 
 ## License
 
-[MIT](LICENSE). The first two skills started as skill documents in another project; see [NOTICE](NOTICE) for that record. `paper-figure-audit` was written for this repository.
+[MIT](LICENSE). The first two skills started as skill documents in another project; see [NOTICE](NOTICE) for that record. `paper-figure-audit` was written for this repository. `skill-creator` is adapted from Anthropic's skill-creator (Apache-2.0), rewritten for DSH; its license text ships inside the skill folder.

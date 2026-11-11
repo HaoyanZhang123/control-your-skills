@@ -55,65 +55,10 @@ description: 为 GitHub 仓库按统一模板编写或优化中英双语 README�
 - **文件与排版**：图片放在仓库内稳定、可公开访问的路径（如 `docs/images/`），使用有意义的小写 kebab-case 文件名和仓库相对路径。静态截图优先 PNG；短动画只在确实能解释流程时使用。保持原图比例，适配窄屏，不拉伸、不用失真的放大图。
 - **双语与图注**：`README.md` 与 `README.zh.md` 可共用图片文件，但 `alt` 与图注按各自语言书写，准确说明图片对应的真实功能，不写营销口号。同一截图不重复使用，除非确有不同解释目的。
 
-### README 固定结构示意（槽位须替换为真实值）
+### README 固定结构示意
 
-````markdown
-<!-- README.md（英文主文件） -->
-
-<p align="center">
-  <img src="cover.png" alt="Cover description" width="100%">
-</p>
-
-<h1 align="center">Project Name</h1>
-<p align="center">One precise English tagline.</p>
-<p align="center"><a href="README.zh.md">中文</a></p>
-
-## Overview
-English overview.
-
-## Features
-- English feature description.
-
-## Installation
-```bash
-# A real, verified command
-```
-
-## Usage
-Minimal usage in English.
-
-## License
-State the actual license status.
-````
-
-````markdown
-<!-- README.zh.md（中文文件；结构与英文版一一对应） -->
-
-<p align="center">
-  <img src="cover.png" alt="封面说明" width="100%">
-</p>
-
-<h1 align="center">项目名称</h1>
-<p align="center">一句准确的中文定位。</p>
-<p align="center"><a href="README.md">English</a></p>
-
-## 简介
-中文简介。
-
-## 核心特性
-- 中文功能说明。
-
-## 安装
-```bash
-# 真实、经核查的命令
-```
-
-## 使用方式
-中文最小使用说明。
-
-## 许可证
-根据仓库真实许可状态说明。
-````
+双语的骨架较长，已拆到 `references/readme-template.md`：真要落笔写 README 时再打开，
+按槽位替换成真实值。只调整措辞、不改结构时不必读它。
 
 ## 其他解释性文字
 

@@ -3,6 +3,44 @@
 格式参考 [Keep a Changelog](https://keepachangelog.com/)，版本号遵循 [Semantic Versioning](https://semver.org/lang/zh-CN/)。
 每个版本的记录都是**完整中文段 + 完整英文段**，不逐句对照。
 
+## [0.4.0] - 2026-11-11
+
+### 中文
+
+**新增**
+
+- `skill-creator`：写 DSH skill 的方法。先判断一件事该不该做成 skill，再按 DSH 真实加载方式拆成 `SKILL.md`、`references/`、`scripts/`、`assets/`。核心是三条：简洁优先、信息只住一处、按任务脆弱程度给自由度。
+- 其中一条是踩过坑才写进去的：frontmatter 用驼峰 `disableModelInvocation` / `modelInvocable` / `userInvocable` 会让 DSH 直接跳过整个 skill，而且**只在日志告警**——模型侧看起来就是"这个 skill 没装"，很难查。
+- `scripts/quick_validate.py`：零第三方依赖的形态校验，查 frontmatter 与目录名是否一致、驼峰键、description 长度、正文体量、空目录、`references/` 引用是否存在、skill 目录里是否混进 README 类附属文档。带 `--self-test`，七条正反样本全部断言。
+- 两份按需读的参考：`references/workflows.md`（顺序与分支流程写法）、`references/output-patterns.md`（严格模板与示例对）。
+
+**变更**
+
+- `github-repository-presentation` 瘦身：两段共 60 行的 README 固定结构示意挪到 `references/readme-template.md`，正文只留"真要落笔写 README 时再打开"的指路句。SKILL.md 从 165 行降到 110 行，规则本身一字未删。
+- `assets/cover.png` 重画为四张技能卡，与新增的 skill 对应。
+
+**说明**
+
+- `skill-creator` 改编自 Anthropic 的 skill-creator（Apache-2.0）。改写为 DSH 原生形态：去掉 DSH 不存在的 `.skill` 打包步骤、把依赖 PyYAML 的校验器换成零依赖实现、正文按 DSH 的技能发现与调用规则重写。原文许可证随 skill 目录原样分发，来源记进 `NOTICE`。
+
+### English
+
+**Added**
+
+- `skill-creator`: how to write a DSH skill. Decide first whether something should be a skill at all, then split it into `SKILL.md`, `references/`, `scripts/` and `assets/` the way DSH actually loads them. Three principles run through it: stay concise, keep every fact in exactly one place, and match the degree of constraint to how fragile the task is.
+- One rule is in there because it bit us: camelCase `disableModelInvocation` / `modelInvocable` / `userInvocable` in the frontmatter makes DSH skip the whole skill, and it only warns **in the log** — from the model's side it just looks like the skill is not installed.
+- `scripts/quick_validate.py`: a zero-dependency format check covering frontmatter and directory-name agreement, the camelCase keys, description length, body size, empty directories, dangling `references/` links, and README-style documents inside a skill folder. It ships with `--self-test` and seven positive/negative assertions.
+- Two on-demand references: `references/workflows.md` for sequential and branching flows, `references/output-patterns.md` for strict templates and example pairs.
+
+**Changed**
+
+- `github-repository-presentation` slimmed down: the two README skeleton blocks (60 lines together) moved to `references/readme-template.md`, leaving one sentence in the body pointing at them for when you actually sit down to write a README. `SKILL.md` went from 165 to 110 lines; no rule was removed.
+- `assets/cover.png` redrawn as four skill cards to match the new skill.
+
+**Notes**
+
+- `skill-creator` is adapted from Anthropic's skill-creator (Apache-2.0) and rewritten for DSH: the `.skill` packaging step DSH does not have is gone, the PyYAML-dependent validator is replaced with a zero-dependency one, and the text follows DSH's own discovery and invocation rules. The original license ships unchanged inside the skill folder, and the provenance is recorded in `NOTICE`.
+
 ## [0.3.0] - 2026-11-09
 
 ### 中文
