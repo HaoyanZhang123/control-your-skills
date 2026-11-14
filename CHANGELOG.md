@@ -3,6 +3,47 @@
 格式参考 [Keep a Changelog](https://keepachangelog.com/)，版本号遵循 [Semantic Versioning](https://semver.org/lang/zh-CN/)。
 每个版本的记录都是**完整中文段 + 完整英文段**，不逐句对照。
 
+## [0.5.0] - 2026-11-14
+
+### 中文
+
+**新增**
+
+- `intent-alignment`：用户说得含糊、用词不准、前后要求冲突，或自己还没想清时，先还原真实意图再动手。核心是三条：理解优先于字面匹配；用户确认的要求、上下文支持的推断、Agent 自己的猜测分成三档，不把猜测写成需求；能自己查、自己解释、自己比较、自己试的就不要丢回给用户。
+- 与常见「追问式澄清」的区别写在正文里：只在**猜错会明显改变结果**处提问，其余情况先自行降低不确定性；目标明确时直接交还执行工作流，不启动澄清仪式。
+- 退出条件也写死了：目标足够明确、关键歧义已处理、授权清楚即退出；退出后不再追加确认态问题或提议范围外的新工作。
+- `references/exploration-methods.md`：按需读的方法库。12 类不确定性诊断、六种探索方法（上下文意图重建、目标—手段拆分、抽象词翻译成可观察特征、差异方案与反例比较、诊断性反馈、可逆原型）、关键假设核查清单、8 个场景示例。
+
+**变更**
+
+- `assets/cover.png` 重画为五张技能卡，与新增的 skill 对应。
+- 两份 README 的封面 `alt`、定位语、简介、技能表、使用示例、仓库结构与许可证说明同步为五个 skill；`NOTICE` 补记 `intent-alignment` 为本仓库原创。
+
+**验证**
+
+- 五个 skill 全量通过 `skills/skill-creator/scripts/quick_validate.py`（`FAIL 0`），含 `--self-test` 7/7 正反样本。
+- 该 skill 做过 8 场景 × 有/无 skill 的 A/B 对照（同一小型项目副本、同一模型，各自真实落盘），覆盖术语歧义、指代歧义、抽象需求、事实缺口、规则冲突、主观反馈、明确任务、明确禁止改文件。**未验证**：长期使用中的实际协作收益、非中文场景下的表现、与其他 skill 同时触发时的优先级。
+
+### English
+
+**Added**
+
+- `intent-alignment`: when the request is vague, mis-worded, self-contradictory, or the user has not decided yet, recover the real intent before acting. Three rules carry it: understanding beats literal matching; what the user confirmed, what the context supports and what the agent guessed are kept in three separate tiers, and a guess is never written up as a requirement; anything the agent can look up, explain, compare or try itself does not get handed back to the user.
+- The difference from the usual "ask until it is clear" habit is written into the body: ask only where a wrong guess would visibly change the result; otherwise reduce the uncertainty first. When the request is already clear, hand it straight back to the normal workflow — no clarification ceremony.
+- Exit conditions are explicit too: stop once the next step is clear, the key ambiguity is settled and authorization is known; after that, no confirmation-only questions and no out-of-scope proposals.
+- `references/exploration-methods.md`: an on-demand method library — twelve kinds of uncertainty, six exploration methods (contextual intent reconstruction, goal-versus-means split, translating abstract words into observable features, contrasting options and counter-examples, diagnostic feedback, reversible prototypes), a key-assumption checklist, and eight worked scenarios.
+
+**Changed**
+
+- `assets/cover.png` redrawn as five skill cards to match the new skill.
+- Both READMEs updated to five skills across the cover `alt`, tagline, overview, skill table, usage examples, repository layout and licence notes; `NOTICE` now records `intent-alignment` as original to this repository.
+
+**Verification**
+
+- All five skills pass `skills/skill-creator/scripts/quick_validate.py` outright (`FAIL 0`), including its `--self-test` with seven positive and negative samples.
+- The skill went through an 8-scenario A/B comparison (with and without it, same small project copy, same model, each run actually writing to disk), covering terminology ambiguity, referential ambiguity, abstract requests, missing facts, rule conflicts, subjective feedback, clear tasks, and an explicit "do not touch files" instruction. **Not verified**: real-world collaboration gains over time, behaviour outside Chinese, and precedence when another skill triggers at the same time.
+
+
 ## [0.4.0] - 2026-11-11
 
 ### 中文
