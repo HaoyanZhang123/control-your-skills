@@ -14,13 +14,37 @@ Harness (skill discovery, single-file format, invocation frontmatter), drops the
 bundled `.skill` packaging step that DSH does not have, and replaces the
 PyYAML-dependent validator with a zero-dependency one.
 
+`academic-writing-suite` draws on two upstream works. Its de-AI prose rules are adapted
+from `kipozannaki/Reduce-AI-Text` (MIT, https://github.com/kipozannaki/Reduce-AI-Text);
+the upstream's self-evolving example library and multi-agent install machinery were
+dropped, leaving only the rewriting rules. Its "write the introduction twice" sequencing
+and its mechanical style gate (em-dashes, antithesis, intensifiers, throat-clearing,
+hedging, passive voice) are adapted from `snl-ucsb/paper-writing-skill` (MIT,
+https://github.com/snl-ucsb/paper-writing-skill); the upstream lab's voice profile and
+LaTeX-specific tooling were not carried over. Its change-impact classes (A/B/C/D) are
+adapted from `WenyuChiou/academic-writing-skills` (MIT,
+https://github.com/WenyuChiou/academic-writing-skills). No third-party files are
+redistributed here; the wording is rewritten for DeepSeek Harness and merged into one
+document.
+
+`figure-legend` is original to this repository, informed by the caption conventions in
+`Yuan1z0825/nature-skills` (Apache-2.0), which is read as methodology only; no upstream
+files are redistributed.
+
 `paper-figure-audit` is original to this repository.
 `intent-alignment` is original to this repository.
 
-本仓库共有五个 skill：其中 `git-release-hygiene` 与 `github-repository-presentation`
+本仓库共有七个 skill。`git-release-hygiene` 与 `github-repository-presentation`
 最初是为 `dsh-agent-team-presets` 撰写的，当前版本包含该项目后续修订与仓主本人的修改；
 `skill-creator` 改编自 Anthropic 的 skill-creator（Apache-2.0），原文许可证随
 skill 目录原样分发，改写内容针对 DSH 的技能发现机制与单文件格式；
+`academic-writing-suite` 的去 AI 味规则改编自 `kipozannaki/Reduce-AI-Text`（MIT），
+"引言写两遍"的流程顺序与机械语体门禁改编自 `snl-ucsb/paper-writing-skill`（MIT），
+变更影响分级改编自 `WenyuChiou/academic-writing-skills`（MIT），三者均已按 DSH 的
+单文件格式重写并合并为一份文档，未分发上游文件；
+`figure-legend` 为本仓库原创，图注体例参考 `Yuan1z0825/nature-skills`（Apache-2.0）的
+方法论描述，未复制其文件；
 `paper-figure-audit` 与 `intent-alignment` 为本仓库原创。
 
 This repository is distributed under the MIT License; see LICENSE.
+

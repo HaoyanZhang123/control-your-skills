@@ -3,6 +3,73 @@
 格式参考 [Keep a Changelog](https://keepachangelog.com/)，版本号遵循 [Semantic Versioning](https://semver.org/lang/zh-CN/)。
 每个版本的记录都是**完整中文段 + 完整英文段**，不逐句对照。
 
+## [0.6.0] - 2026-11-18
+
+### 中文
+
+**新增**
+
+- `academic-writing-suite`：学术写作的完整工作台，把起草、润色与去 AI 味三件事放在同一份文档里。三者的交付物不同，但共用同一套证据纪律——先建术语台账与证据清单，再判断改动属于哪一级（语义契约 / 证据方法 / 元数据 / 表层），因为改一处要重开哪些章节是由分级决定的，不是凭感觉。
+- 起草这一侧写进去两条硬流程：**引言写两遍**——先写一份会被丢弃的 Draft 0，用它约束评测，等证据齐了再从零重写最终引言，只承诺证据支持的事；以及**先写主题句再填段落**，主题句连不成一篇文章就不填。
+- 润色这一侧的核心是「诊断先于改写」：先判十二类失败模式，再按 `论文类型 → 章节任务 → 证据摆放 → 段落必要性 → claim/证据/边界 → 句子润色` 的优先级链修。判错失败模式，后面所有修改都白做。
+- 去 AI 味这一侧留了四条学术专有禁令：反价值声明、反元评论、反总括—分述模板、反堆砌。同时写清了**不许动的东西**——边界句删掉不会让文字更自然，只会让主张变强。修改阈值是宁缺毋滥，原文已经自然就保留原文并写明检测通过。
+- `references/drafting.md`：引言快漏斗六步与缺口写法诊断表、论证脊、章节职责矩阵、重构四动作、段落三形状、Results 三种主线形状、主张升级的四个合法手段、摘要五种骨架与数字准入测试、结论四要素、首次投稿包、拒稿风险自审十问。
+- `references/polishing.md`：十二类失败模式、三轴路由、反向提纲、衔接判据、语体护栏、过度断言清单、phrasebook 式的功能家族表、中译英六条修复模式、压缩顺序、全文清扫的问题表格式。
+- `references/de-ai.md`：四条禁令的具体改法与反例、不许动的清单、语体尺度表、改写后自检。
+- `figure-legend`：图注单独成 skill。总题只放名词短语、结论式动词与数值都不进去；一个面板一句；n、离散度定义、检验、多重比较四件事收在图注里，正文不再重复交代；图注必须脱离正文可读；英文图注描述图中事实用现在时、样本制备用过去时；复用他人图版必须附授权串，没有就标 `[待确认]` 而不是编一个。
+- 图注之所以分开，是因为「图里不该有句子」和「图注该怎么写」是两个问题：`paper-figure-audit` 管前者，`figure-legend` 管后者，两者的边界在 description 里互相点名。
+- `assets/build_cover.py`：封面从手绘改成了脚本生成。改文案不用再修图，改常量重跑即可。
+
+**变更**
+
+- `assets/cover.png` 重画：从五张技能卡改为 1600×420 的纯品牌图，只留标记、`DSH / DEVELOPER TOOLKIT` 眉题、仓库名与一条下划线。技能列表本来就在 README 的表格里，图上再列一遍是两处维护同一事实。
+- 两份 README 的技能表从五行扩到七行，`alt`、简介、使用示例、仓库结构与许可证说明同步；封面 `alt` 简化为仓库名，理由同上。
+- `NOTICE` 补记三条上游出处：`academic-writing-suite` 的去 AI 味规则改编自 `kipozannaki/Reduce-AI-Text`（MIT），引言写两遍与机械语体门禁改编自 `snl-ucsb/paper-writing-skill`（MIT），变更影响分级改编自 `WenyuChiou/academic-writing-skills`（MIT）。三者均按 DSH 单文件格式重写并合并，未分发上游文件。选源时排除了 `Imbad0202/academic-research-skills`：它的 CC-BY-NC 许可与本仓库的 MIT 不兼容。
+- `AGENTS.md` 补一条：`SKILL.md` 控制在 150 行内，细节进 `references/`，并在正文标清什么条件下读哪一份——不写清楚，拆出去等于丢了。
+
+**移除**
+
+- 本仓库不再包含 `academic-figure`、`academic-review`、`academic-slides`、`academic-polish`、`academic-writing` 这五个此前从插件工厂项目蒸馏的 skill。它们的核心内容并入了上述两个新 skill，重型结构（`manifest.yaml` 四轴路由 + `static/fragments`）按本仓库既有的单文件约定压平。`academic-figure` 的几何判据（字号 5–7pt、面板容差 1.5pt、导出契约）没有并入：`paper-figure-audit` 的定位是不评判字号与导出格式，并进去会与自己的边界声明冲突，因此该能力随之一并移除。
+
+**验证**
+
+- 七个 skill 全量通过 `skills/skill-creator/scripts/quick_validate.py`（`FAIL 0`），含 `--self-test` 的正反样本。
+- 封面脚本 `python assets/build_cover.py` 可重复生成同一张图，产物 1600×420。
+- **未验证**：`academic-writing-suite` 与 `figure-legend` 尚未在真实论文上跑过完整流程；三轴路由与机械门禁是规则层面的，没有对应的机检脚本；移除 `academic-figure` 后，字号与面板对齐检查需自行使用目标期刊说明或本机图表工具。
+
+### English
+
+**Added**
+
+- `academic-writing-suite`: one workbench for academic writing that holds drafting, polishing and de-AI rewriting in a single document. The three produce different deliverables but share one evidence discipline: build the terminology ledger and the evidence list first, then classify every change (semantic contract, evidence or method, metadata, surface) — because which sections an edit reopens is decided by that class, not by feel.
+- Two hard sequences are written into the drafting side. **Write the introduction twice**: a disposable Draft 0 sets the guardrails for the evaluation, and once the evidence exists the final introduction is rewritten from scratch, promising only what the evidence supports. **Write topic sentences before paragraphs**: if the topic sentences do not chain into one argument, do not fill in the paragraphs.
+- The polishing side turns on "diagnose before rewriting": identify the failure mode first, then fix along the chain `paper type → section duty → evidence placement → paragraph necessity → claim/evidence/boundary → sentence`. Get the failure mode wrong and every later edit is wasted.
+- The de-AI side keeps four rules specific to academic prose: no value declarations, no meta-commentary, no "overview then enumeration" template, no padding. It also states what must not be touched — deleting a boundary sentence does not make the prose more natural, it only makes the claim stronger. The rewriting threshold is "only when needed": prose that is already natural is kept, with an explicit pass note.
+- `references/drafting.md`: the six-step introduction funnel with a gap-writing diagnostic table, the argument spine, the section-duty matrix, the four restructuring moves, three paragraph shapes, three shapes for Results, four legitimate ways to escalate a claim, five abstract skeletons with the number-admission test, the four conclusion elements, the first-submission package, and ten pre-submission rejection-risk questions.
+- `references/polishing.md`: twelve failure modes, the three-axis routing, reverse outlining, transition criteria, style guardrails, the overclaiming list, a phrase bank organised by function rather than by replacement, six repairs for Chinese-to-English drafts, the compression order, and the problem-table format for a full sweep.
+- `references/de-ai.md`: concrete rewrites and counter-examples for the four rules, the do-not-touch list, the register table by genre, and the post-rewrite self-check.
+- `figure-legend`: captions get their own skill. The title is a noun phrase — conclusion verbs and numbers stay out; one sentence per panel; n, dispersion definition, test and multiple-comparison handling are collected into the caption and not repeated in the body; the caption must be readable away from the body; English captions use the present tense for what the figure shows and the past tense for sample preparation; reusing a published figure requires a permission string, and if there is none the answer is a `[待确认]` placeholder, not an invented one.
+- Captions are separate because "the figure should not contain sentences" and "how a caption should be written" are different questions: `paper-figure-audit` owns the first, `figure-legend` owns the second, and each names the other in its description.
+- `assets/build_cover.py`: the cover is now generated from a script instead of drawn by hand. Changing the wording no longer means editing an image.
+
+**Changed**
+
+- `assets/cover.png` redrawn: five skill cards replaced by a 1600×420 brand image carrying only the marker, a `DSH / DEVELOPER TOOLKIT` eyebrow, the repository name and an underline. The skill list already lives in the README table; repeating it in the image maintained one fact in two places.
+- Both READMEs go from five skill rows to seven, with the cover `alt`, overview, usage examples, repository layout and licence notes updated to match; the cover `alt` is now just the repository name, for the same reason.
+- `NOTICE` records three upstream sources for `academic-writing-suite`: the de-AI rules adapt `kipozannaki/Reduce-AI-Text` (MIT), the introduction-twice sequencing and the mechanical style gate adapt `snl-ucsb/paper-writing-skill` (MIT), and the change-impact classes adapt `WenyuChiou/academic-writing-skills` (MIT). All three were rewritten for the DSH single-file format and merged; no upstream files are redistributed. `Imbad0202/academic-research-skills` was excluded on licence grounds — CC-BY-NC is incompatible with this repository's MIT.
+- `AGENTS.md` gains one rule: keep `SKILL.md` within 150 lines, move detail into `references/`, and state in the body when each reference is read — a split without that pointer loses the content.
+
+**Removed**
+
+- The repository no longer carries `academic-figure`, `academic-review`, `academic-slides`, `academic-polish` and `academic-writing`, five skills previously distilled from another project. Their substance was merged into the two new skills and the heavyweight structure (`manifest.yaml` four-axis routing plus `static/fragments`) was flattened to this repository's existing single-file convention. The geometric criteria from `academic-figure` (5–7pt type at final size, 1.5pt panel tolerance, export contract) were not carried over: `paper-figure-audit` is defined as not judging type size or export format, so folding them in would contradict its own boundary statement, and that capability is gone with it.
+
+**Verification**
+
+- All seven skills pass `skills/skill-creator/scripts/quick_validate.py` outright (`FAIL 0`), including its positive and negative self-test samples.
+- `python assets/build_cover.py` regenerates the same 1600×420 image.
+- **Not verified**: `academic-writing-suite` and `figure-legend` have not been run end to end on a real manuscript; the three-axis routing and the mechanical style gate are rules only, with no checking script behind them; with `academic-figure` removed, type size and panel alignment now depend on the target journal's instructions or a local figure tool.
+
+
 ## [0.5.0] - 2026-11-14
 
 ### 中文
